@@ -1,0 +1,23 @@
+{
+  "name": "the_hookahp",
+  "version": "1.0.0",
+  "description": "ecomm platform for custom-made glass bottle hookahs",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SavannahF/the_hookahp.git"
+  },
+  "author": "Savannah Fortson, Nadia Dorado, Paulo de Sa, Andrew Patison",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SavannahF/the_hookahp/issues"
+  },
+  "homepage": "https://github.com/SavannahF/the_hookahp#readme"
+}
