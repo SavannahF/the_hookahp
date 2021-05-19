@@ -1,0 +1,1 @@
+// second js from example structure
