@@ -1,61 +1,30 @@
-const mySql = require('mysql');
+const Customers = require('./customers');
+const Bottles = require('./bottles');
+const Lights = require('./lights');
+const Hoses = require('./hoses');
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: ``,
-    database: 'the_hookahpDB',
+// Customers to Bottles
+Customers.hasMany(Bottles, {
+    foreignKey: 'customer_id',
+});
+Bottles.belongsTo(Customers, {
+    foreignKey: 'customer_id',
 });
 
-// What GET and POST APIs come next all depend on what our HTML functionality is that we choose
-// Create New Account
-const createCustAcct = () => {
-    console.log(`Creating New Customer Account...`);
-    const newCust = connection.query(
-        `INSERT INTO customers SET ?`,
-        {
-            customer_id: ``,
-            customer_first_name: ``,
-            customer_last_name: ``,
-            customer_password: ``,
-            customer_email: ``,
-        },
-        (err, res) => {
-            if(err) throw err;
-            console.log(`${res.affectedRows} customer inserted!\n`);
-        }
-    );
-    console.log(newCust.sql);
-}
+// Customer to Hoses
+Customers.hasMany(Hoses, {
+    foreignKey: 'customer_id',
+  });
+Hoses.belongsTo(Customers, {
+    foreignKey: 'customer_id',
+  });
 
-const createCustomHookah = () => {
-    console.log(`Create your Custom Liquor Bottle Hookah!`);
-    const newHookah = connection.query()
-}
+// Customer to Lights
+Customers.hasMany(Lights, {
+    foreignKey: 'customer_id',
+  });
+Lights.belongsTo(Customers, {
+    foreignKey: 'customer_id',
+  });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Store in a vairable or function to invoke when user pushes a button!!!!!
-// Connect to DB
-const connectNow = connection.connect((err) => {
-    if(err) throw err;
-    console.log(`Connected as ID ${connection.threadId}`)
-    // Need to figure out how to make Functions created above asynchronous and only invoked on a button click from the HTML view
-    //      createCustAcct();
-    // invoke adding customization to DB
-    //      createCustomHookah();
-})
+module.exports = { Customers, Bottles, Lights, Hoses };
