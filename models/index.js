@@ -1,10 +1,10 @@
-const mySql = require('mysql');
+const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: ``,
+    password: `sqlpassword`,
     database: 'the_hookahpDB',
 });
 
@@ -22,7 +22,7 @@ const createCustAcct = () => {
             customer_email: ``,
         },
         (err, res) => {
-            if(err) throw err;
+            if (err) throw err;
             console.log(`${res.affectedRows} customer inserted!\n`);
         }
     );
@@ -52,7 +52,7 @@ const createCustomHookah = () => {
 // Store in a vairable or function to invoke when user pushes a button!!!!!
 // Connect to DB
 const connectNow = connection.connect((err) => {
-    if(err) throw err;
+    if (err) throw err;
     console.log(`Connected as ID ${connection.threadId}`)
     // Need to figure out how to make Functions created above asynchronous and only invoked on a button click from the HTML view
     //      createCustAcct();
