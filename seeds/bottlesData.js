@@ -1,15 +1,23 @@
-const { Bottles } = require('../models');
+const { Bottle } = require("../models");
 
 const bottlesData = [
-    {
-        customer_id: `00001`,
-        bottle_type: `Johnny Walker Blue`,
-        name_on_bottle: `Andrew's Hookah`,
-    },
-//   Add Additional bottles seeds Below:
-
+  {
+    bottle_type: `Johnny Walker Blue`,
+    hose_qty: 3,
+    lt_flag: true,
+    name_on_bottle: `Andrew's Hookah`,
+    price: 150.0,
+  },
+  {
+    bottle_type: `Hennessy VS Cognac`,
+    hose_qty: 2,
+    lt_flag: false,
+    name_on_bottle: `Flaca`,
+    price: 100.0,
+  },
+  //   Add Additional bottles seeds Below:
 ];
 
-const seedBottles = () => Bottles.bulkCreate(bottlesData);
+const seedBottles = () => Bottle.bulkCreate(bottlesData);
 
 module.exports = seedBottles;
