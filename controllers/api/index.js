@@ -1,13 +1,6 @@
-const router = require('express').Router();
+const router = require("express").Router();
+const getStartedRoute = require("./get-started-route");
 
-const customersRoutes = require('./customersRoutes');
-const hosesRoutes = require('./hosesRoutes');
-const lightsRoutes = require('./lightsRoutes');
-const bottlesRoutes = require('./bottlesRoutes');
-
-router.use('/customers', customersRoutes);
-router.use('/hoses', hosesRoutes);
-router.use('/lights', lightsRoutes);
-router.use('/bottles', bottlesRoutes);
+router.use("/get-started-route", getStartedRoute);
 
 module.exports = router;
