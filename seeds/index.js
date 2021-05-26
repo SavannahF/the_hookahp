@@ -1,19 +1,17 @@
-const sequelize = require('../config/connection');
-const seedCustomers = require('./customersData');
-const seedBottles = require('./bottlesData');
-const seedLights = require('./lightsData');
-const seedHoses = require('./hosesData');
+const seedBottle = require("./bottlesData");
+const seedUser = require("./customersData");
+
+const sequelize = require("../config/connection");
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
+  console.log("\n----- DATABASE SYNCED -----\n");
 
-  await seedCustomers();
+  await seedUser();
+  console.log("\n----- USER SEEDED -----\n");
 
-  await seedBottles();
-
-  await seedLights();
-
-  await seedHoses();
+  await seedBottle();
+  console.log("\n----- BOTTLE SEEDED -----\n");
 
   process.exit(0);
 };

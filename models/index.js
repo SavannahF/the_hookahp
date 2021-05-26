@@ -1,30 +1,22 @@
-const Customers = require('./customers');
-const Bottles = require('./bottles');
-const Lights = require('./lights');
-const Hoses = require('./hoses');
+// import models
+const Bottle = require("./Bottle");
+const User = require("./User");
 
-// Customers to Bottles
-Customers.hasMany(Bottles, {
-    foreignKey: 'customer_id',
+
+// Association methods
+
+// Bottle belongsTo User
+Bottle.belongsTo(User, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
 });
-Bottles.belongsTo(Customers, {
-    foreignKey: 'customer_id',
+
+// Users have many Bottles
+User.hasMany(Bottle, {
+  foreignKey: "user_id",
 });
 
-// Customer to Hoses
-Customers.hasMany(Hoses, {
-    foreignKey: 'customer_id',
-  });
-Hoses.belongsTo(Customers, {
-    foreignKey: 'customer_id',
-  });
-
-// Customer to Lights
-Customers.hasMany(Lights, {
-    foreignKey: 'customer_id',
-  });
-Lights.belongsTo(Customers, {
-    foreignKey: 'customer_id',
-  });
-
-module.exports = { Customers, Bottles, Lights, Hoses };
+module.exports = {
+  Bottle,
+  User, 
+};

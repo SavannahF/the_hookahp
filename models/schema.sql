@@ -1,3 +1,0 @@
-DROP DATABASE IF EXISTS the_hookahpDB;
-
-CREATE DATABASE the_hookahpDB;
