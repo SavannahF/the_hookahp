@@ -1,17 +1,48 @@
-// const path = require("path");
-const express = require("express");
-// const exphbs = require("express-handlebars");
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
+const express = require('express')
+const app = express()
+const passport = require('passport')
+const flash = require('express-flash')
+const session = require('express-session')
+const methodOverride = require('method-override')
 const routes = require("./controllers");
-
 const sequelize = require("./config/connection");
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
 
-const app = express();
-const PORT = process.env.PORT || 3306;
+const initializePassport = require('./config/passport-config')
+initializePassport(
+  passport,
+  email => users.find(user => user.email === email),
+  id => users.find(user => user.id === id)
+)
 
-// const hbs = exphbs.create({ helpers });
+const users = []
 
-// app.engine("handlebars", exphbs());
-// app.set("view engine", "handlebars");
+app.set('view-engine', 'handlebars')
+app.use(express.urlencoded({ extended: false }))
+app.use(flash())
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(methodOverride('_method'))
+
+
+
+
+const PORT = process.env.PORT || 3006;
+
+// const hbs = exphbs.create({ handlebars });
+
+app.engine("handlebars", exphbs());
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
