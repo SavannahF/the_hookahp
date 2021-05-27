@@ -2,22 +2,31 @@ const router = require("express").Router();
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 
-router.get('/', confirmAuthUser, (req, res) => {
-    res.render('index.ejs', { name: req.user.name })
+// /
+// confirmAuthUser,
+router.get('/', (req, res) => {
+    console.log('slash is a wicked guitarist')
+    res.render('index')
+    // send this in the res.render when auth is up { name: req.user.name }
 })
 
+// /login
 router.get('/login', confirmUnauthUser, (req, res) => {
-    res.render('login.ejs')
+    res.render('login')
 })
 
+
+// POST /login
 router.post('/login', confirmUnauthUser, passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
     failureFlash: true
 }))
 
+
+
 router.get('/register', confirmUnauthUser, (req, res) => {
-    res.render('register.ejs')
+    res.render('register')
 })
 
 router.post('/register', confirmUnauthUser, async (req, res) => {
@@ -54,6 +63,8 @@ function confirmUnauthUser(req, res, next) {
     }
     next()
 }
+
+module.exports = router;
 
 
 

@@ -12,6 +12,7 @@ const routes = require("./controllers");
 const sequelize = require("./config/connection");
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
+const PORT = process.env.PORT || 3006;
 
 const initializePassport = require('./config/passport-config')
 initializePassport(
@@ -22,8 +23,8 @@ initializePassport(
 
 const users = []
 
-app.set('view-engine', 'handlebars')
-app.use(express.urlencoded({ extended: false }))
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 app.use(flash())
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -33,20 +34,9 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
-
-
-
-
-const PORT = process.env.PORT || 3006;
-
-// const hbs = exphbs.create({ handlebars });
-
-app.engine("handlebars", exphbs());
-
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("public"));
 
 app.use(routes);
 

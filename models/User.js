@@ -35,6 +35,8 @@ User.init(
     //     len: [6],
     //   },
     // },
+
+    // Do we need the hooks like in /14-MVC/01-Activities/28-Stu_Mini-Project/Main/models/User.js, lines 40-54?
   },
   {
     sequelize,

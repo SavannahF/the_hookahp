@@ -1,6 +1,12 @@
 const router = require("express").Router();
-const getStartedRoute = require("./get-started-route");
+const apiUserRoutes = require("./apiUserRoutes");
+const apiBottleRoutes = require('./apiBottleRoutes')
 
-router.use("/get-started-route", getStartedRoute);
+// /api/users
+router.use("/users", apiUserRoutes);
+
+// /api/bottles
+
+router.use('/bottles', apiBottleRoutes)
 
 module.exports = router;
