@@ -14,14 +14,14 @@ const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
 const PORT = process.env.PORT || 3006;
 
-const initializePassport = require('./config/passport-config')
-initializePassport(
-  passport,
-  email => users.find(user => user.email === email),
-  id => users.find(user => user.id === id)
-)
+// const initializePassport = require('./config/passport-config')
+// initializePassport(
+//   passport,
+//   email => users.find(user => user.email === email),
+//   id => users.find(user => user.id === id)
+// )
 
-const users = []
+// const users = []
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -31,8 +31,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }))
-app.use(passport.initialize())
-app.use(passport.session())
+// app.use(passport.initialize())
+// app.use(passport.session())
 app.use(methodOverride('_method'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
