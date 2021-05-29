@@ -9,8 +9,12 @@ const sequelize = require("./config/connection");
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
 const PORT = process.env.PORT || 3006;
+const path = require("path");
 
-// const users = []
+const publicDirectory = path.join(__dirname, './public');
+app.use(express.static(publicDirectory));
+
+const users = []
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -27,17 +31,3 @@ sequelize.sync({ force: false }).then(() => {
   });
 });
 
-// app.get('/', (req,res) => {
-//    res.render('home')
-// })
-
-// app.get('/hookahs', (req, res) => {
-//     const hookahs = 'search the database for hookahs'
-//     const prices = [5.00, 49.99,100]
-//     res.render('hookahs', {
-//         prices,
-//         hookahs
-//     })
-// })
-
-// app.listen(3000)
