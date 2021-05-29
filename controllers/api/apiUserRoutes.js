@@ -1,19 +1,12 @@
-const router = require("express").Router();
+const express = require('express');
+const router = express.Router();
+// const router = require("express").Router();
 const bcrypt = require('bcrypt');
 const mysql = require("mysql2");
 const { Bottle, User } = require('../../models');
 
 //everything in here is on 
-
-// Create Connection:
-const db = mysql.createConnection({
-    // put IP address of server instead of localhost
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PW,
-    database: process.env.DB_NAME
-});
-
+// /api/register
 
 // CREATE new User
 router.post('/register', async (req, res) => {
