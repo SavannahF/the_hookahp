@@ -4,7 +4,7 @@ const apiRoutes = require('./api');
 const loginRoutes = require('./login-routes')
 
 router.use('/api', apiRoutes);
-router.use('/', loginRoutes)
+router.use('/', loginRoutes);
 
 // router.use((req, res) => {
 //   res.send("<h1>Wrong Route!</h1>")
