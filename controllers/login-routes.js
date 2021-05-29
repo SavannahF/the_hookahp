@@ -1,35 +1,37 @@
-const router = require("express").Router();
-const bcrypt = require('bcrypt')
-const passport = require('passport')
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcrypt');
 
-// /
+// 
 // confirmAuthUser,
-router.get('/', confirmAuthUser,  (req, res) => {
-    console.log('slash is a wicked guitarist')
+router.get('/',  (req, res) => {
+    // console.log('slash is a wicked guitarist')
     res.render('index')
     // send this in the res.render when auth is up { name: req.user.name }: this puts the name of the user 
 })
 
 // /login
-router.get('/login', confirmUnauthUser, (req, res) => {
+router.get('/login', (req, res) => {
     res.render('login')
 })
 
 
 // POST /login
-router.post('/login', confirmUnauthUser, passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: true
-}))
+// Need to figure out another post not involving passport
+
+// router.post('/login', passport.authenticate('local', {
+//     successRedirect: '/',
+//     failureRedirect: '/login',
+//     failureFlash: true
+// }))
 
 
 
-router.get('/register', confirmUnauthUser, (req, res) => {
+router.get('/register', (req, res) => {
     res.render('register')
 })
 
-router.post('/register', confirmUnauthUser, async (req, res) => {
+router.post('/register', async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
         users.push({
@@ -51,20 +53,22 @@ router.delete('/logout', (req, res) => {
     res.redirect('/login')
 })
 
-function confirmAuthUser(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next()
-    }
 
-    res.redirect('/login')
-}
 
-function confirmUnauthUser(req, res, next) {
-    if (req.isAuthenticated()) {
-        res.redirect('/')
-    }
-    next()
-}
+// function confirmAuthUser(req, res, next) {
+//     if (req.isAuthenticated()) {
+//         return next()
+//     }
+
+//     res.redirect('/login')
+// }
+
+// function confirmUnauthUser(req, res, next) {
+//     if (req.isAuthenticated()) {
+//         res.redirect('/')
+//     }
+//     next()
+// }
 
 module.exports = router;
 
