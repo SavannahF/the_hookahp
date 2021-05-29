@@ -1,4 +1,6 @@
-const router = require("express").Router();
+const express = require('express');
+const router = express.Router();
+// const router = require("express").Router();
 const { User, Bottle } = require('../../models')
 
 //everything in here is on

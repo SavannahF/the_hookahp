@@ -1,12 +1,23 @@
-const router = require("express").Router();
-const apiUserRoutes = require("./apiUserRoutes");
-const apiBottleRoutes = require('./apiBottleRoutes')
+// auth.js
+const express = require('express');
+const router = express.Router();
+const apiController = require('./apiUserRoutes');
+
+router.post('/register', apiController.register)
+
+// // const router = require("express").Router();
+
+// const apiUserRoutes = require("./apiUserRoutes");
+// const apiBottleRoutes = require('./apiBottleRoutes');
+
+
+
+// // /api/register
+// router.use('/register', apiUserRoutes);
+
+// // /api/bottles 
+// router.use('/bottles', apiBottleRoutes);
 
 // /api/users
-router.use("/users", apiUserRoutes);
-
-// /api/bottles
-
-router.use('/bottles', apiBottleRoutes)
 
 module.exports = router;
