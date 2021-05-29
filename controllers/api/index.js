@@ -1,7 +1,7 @@
 // auth.js
 const express = require('express');
 const router = express.Router();
-const apiController = require('./apiUserRoutes-2');
+const apiController = require('./apiUserRoutes');
 
 router.post('/register', apiController.register)
 
