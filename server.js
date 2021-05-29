@@ -14,8 +14,6 @@ const path = require("path");
 const publicDirectory = path.join(__dirname, './public');
 app.use(express.static(publicDirectory));
 
-const users = []
-
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
