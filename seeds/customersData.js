@@ -2,28 +2,24 @@ const { User } = require("../models");
 
 const userData = [
   {
-    customer_first_name: `Andrew`,
-    customer_last_name: `Patison`,
-    // customer_email: `acpatison@gmail.com`,
-    // customer_password: `patAttack987`,
+    name: `Andrew`,
+    email: `acpatison@gmail.com`,
+    password: `patAttack987`,
   },
   {
-    customer_first_name: `Nadia`,
-    customer_last_name: `Dorado`,
-    // customer_email: `nadiadorado@gmail.com`,
-    // customer_password: `LaDorada123`,
+    name: `Nadia`,
+    email: `nadiadorado@gmail.com`,
+    password: `LaDorada123`,
   },
   {
-    customer_first_name: `Nadia`,
-    customer_last_name: `Dorado`,
-    // customer_email: `savannah.fortson@gmail.com`,
-    // customer_password: `FortSav192`,
+    name: `Savannah`,
+    email: `savannah.fortson@gmail.com`,
+    password: `FortSav192`,
   },
   {
-    customer_first_name: `Paulo`,
-    customer_last_name: `de Sa`,
-    // customer_email: `Paulo@gmail.com`,
-    customer_password: `SeaPaulo918`,
+    name: `Paulo`,
+    email: `Paulo@gmail.com`,
+    password: `SeaPaulo918`,
   },
   //   Add Additional Customers seeds below:
 ];

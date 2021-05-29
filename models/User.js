@@ -12,11 +12,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    customer_first_name: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    customer_last_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: true,
     },
