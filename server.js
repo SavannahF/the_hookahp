@@ -7,6 +7,7 @@ const app = express()
 const mysql = require("mysql2");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
+const morgan = require('Morgan');
 
 dotenv.config({ path: `./.env`})
 
@@ -41,6 +42,9 @@ app.engine('handlebars', hbs.engine);
 // if handlebars isn't working, try changing the extentions to .hbs and change the line below to:
 // app.set('view engine', 'hbs');
 app.set('view engine', 'handlebars');
+
+// Use Morgan
+app.use(morgan("common"));
 
 // Parse URL-enconded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: false }));
