@@ -22,7 +22,6 @@ router.get('/login', (req, res) => {
 //  /create-bottle
 router.get('/create-bottle', (req, res) => {
     res.render('create_bottle')
-    // res.render('create_bottle=this is the hbs file name')
 })
 
 module.exports = router;

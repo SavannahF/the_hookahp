@@ -1,8 +1,8 @@
 <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+  <img src="/public/img/{{filename}}" alt="{{bottle_type}}">
+
   <div class="card-body bottles">
-{{!-- each hbs --}}
-    <h5 class="card-title">Hennessy VS Cognac 750ml 
+    <h5 class="card-title">{{Bottle.bottle_type}}
  </h5>
     <div class="container">
     
@@ -19,12 +19,12 @@
     <label id="labelChoiceYes" for="yes">YES</label>
     <input type="radio" name="choices" id="no" value="No" class="choices">
     <label id="labelChoiceNo" for="no">NO</label>
-    {{!-- add name --}}
+    {{!-- add name  to bottle--}}
 <div class="form-check form-switch">
   <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
   <label class="form-check-label" for="flexSwitchCheckChecked">Add a name to the base</label>
 </div>
-    <h6 id:"price" class="card-text price">$100</h6>
+    <h6 id:"price" class="card-text price">{{Bottle.price}}</h6>
 
     </div>
 

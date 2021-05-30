@@ -38,6 +38,10 @@ Bottle.init(
       validate: {
         isDecimal: true,
       },
+      filename: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
   },
   {
