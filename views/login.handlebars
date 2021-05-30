@@ -1,14 +1,26 @@
-<h1>Login</h1>
-            <form action="/login" method="POST">
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
+{{!-- <h1>Login</h1> --}}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">Login</div>
+        {{!-- action is where you want to send all of these values --}}
+        <form action="/api/login" method="POST">
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
 
-                <div>
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit">Login</button>
-            </form>
-            <a href="/register">Register</a>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+    {{!-- same as from register.handlebars --}}
+    {{!-- message variable coming from apiUserRoutes error messages upon registering--}}
+   {{#if message}} 
+        <h4 class="alert alert-danger mt-4">{{message}}</h4>
+   {{/if}}
+</div>
+ 
