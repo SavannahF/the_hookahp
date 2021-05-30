@@ -1,24 +1,15 @@
-// Insert into Bottles all the necessary fields from the model:
-  // Need to change the model name from the user/register route
-    // Store all records for given user id in session storage
-      // Populate the 
-
-// Find all Bottles configurations if given User ID:
-  // Get from all fields using, DB.Query
+const mysql = require("mysql2");
+const jwt = require('jsonwebtoken');
+// const bcrypt = require('bcryptjs');
 
 
-  const mysql = require("mysql2");
-  // const jwt = require('jsonwebtoken');
-  const bcrypt = require('bcryptjs');
-
-
-  const db = mysql.createConnection({
-    // put IP address of server instead of localhost
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PW,
-    database: process.env.DB_NAME
-  });
+const db = mysql.createConnection({
+  // put IP address of server instead of localhost
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PW,
+  database: process.env.DB_NAME
+});
 
 
 // Insert a bottle configuration for a specific User:
@@ -63,8 +54,23 @@ exports.bottles = (req, res) => {
   console.log(bottleData);
   
   
-  // Need to add in logic similar to userRoutes to show the id of a logged in person
-    // Assuming we could just use the same token logic seen in else statment of API UserRoutes:
+// Assuming we could just use the same token logic seen in else statment of API UserRoutes:
+    const id = results[0].id;
+    // id: id in js can be written just id
+    const token = jwt.sign({ id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRES_IN
+    });
+
+    console.log("The token is: " + token);
+
+    const cookieOptions = {
+        expires: new Date(
+            Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+        ),
+        httpOnly: true
+    } 
+    res.cookie('jwt', token, cookieOptions);
+    res.status(200).redirect("/");
 
   // Query for all bottles created by current user ID: obvi change the param below
   db.query(`SELECT * FROM bottle WHERE ?`, {id: currentUser}, (err, res) => {
@@ -81,6 +87,8 @@ exports.bottles = (req, res) => {
       `
     );
     // Need to put in the logic here to actually be able to render all bottles that were configured
+
+
   } else {
     console.err(`No Hookahs configured`)
     }
