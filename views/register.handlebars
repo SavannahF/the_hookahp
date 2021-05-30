@@ -1,10 +1,14 @@
-{{!-- <h1>Login</h1> --}}
+{{!-- <h1>Register</h1> --}}
 <div class="container mt-4">
     <div class="card">
-        <div class="card-header">Login</div>
+        <div class="card-header">Register</div>
         {{!-- action is where you want to send all of these values --}}
-        <form action="/api/login" method="POST">
-            
+        <form action="/api/register" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" name="email" required>
@@ -14,10 +18,16 @@
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+
+            <div class="form-group">
+                <label for="password">Confirm Password</label>
+                <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Register</button>
         </form>
+        <a href="/login">Login</a>
     </div>
-    {{!-- same as from register.handlebars --}}
     {{!-- message variable coming from apiUserRoutes error messages upon registering--}}
    {{#if message}} 
         <h4 class="alert alert-danger mt-4">{{message}}</h4>

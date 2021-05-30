@@ -1,23 +1,64 @@
+// if (process.env.NODE_ENV !== 'production') {
+//   require('dotenv').config()
+// }
+
 const express = require('express')
 const app = express()
-const exphbs = require('express-handlebars')
+const mysql = require("mysql2");
+const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
+const morgan = require('Morgan');
 
-app.engine('handlebars', exphbs())
-app.set('view engine', 'handlebars')
+dotenv.config({ path: `./.env`})
 
+const db = mysql.createConnection({
+  // put IP address of server instead of localhost
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PW,
+  database: process.env.DB_NAME
+});
 
-
-app.get('/', (req,res) => {
-   res.render('home')
+db.connect( (error) => {
+  if(error) {
+    console.log(error)
+  } else {
+    console.log("MY SQL Connected....")
+  }
 })
 
-app.get('/hookahs', (req, res) => {
-    const hookahs = 'search the database for hookahs'
-    const prices = [5.00, 49.99,100]
-    res.render('hookahs', {
-        prices,
-        hookahs
-    })
-})
+const routes = require("./controllers");
+const sequelize = require("./config/connection");
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
+const PORT = process.env.PORT || 3006;
+const path = require("path");
 
-app.listen(3000)
+const publicDirectory = path.join(__dirname, './public');
+  // console.log(__dirname);
+app.use(express.static(publicDirectory));
+
+app.engine('handlebars', hbs.engine);
+// if handlebars isn't working, try changing the extentions to .hbs and change the line below to:
+// app.set('view engine', 'hbs');
+app.set('view engine', 'handlebars');
+
+// Use Morgan
+app.use(morgan("common"));
+
+// Parse URL-enconded bodies (as sent by HTML forms)
+app.use(express.urlencoded({ extended: false }));
+// Parse JSON bodies (as sent by API clients)
+app.use(express.json());
+app.use(cookieParser());
+
+app.use(express.static("public"));
+
+app.use(routes);
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}!`);
+  });
+});
+

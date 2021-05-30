@@ -1,3 +1,7 @@
-<h1> I am an example of an h1 Header for test</h1>
-<hr />
-<p> This has been rendered into the main body of the html </p>
+<h1>Home Page</h1>
+
+{{!-- whatever we want our home page to look like goes outside here, to display ALL THE TIME --}}
+{{#if loggedIn}}
+    <h4>You're logged in!!</h4>
+    {{!-- whatever we want to display here ONLY WHILE LOGGED IN would go inside the if statement --}}
+{{/if}}
