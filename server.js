@@ -6,6 +6,7 @@ const express = require('express')
 const app = express()
 const mysql = require("mysql2");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 
 dotenv.config({ path: `./.env`})
 
@@ -45,6 +46,7 @@ app.set('view engine', 'handlebars');
 app.use(express.urlencoded({ extended: false }));
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
+app.use(cookieParser());
 
 app.use(express.static("public"));
 

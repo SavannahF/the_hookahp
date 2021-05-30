@@ -5,6 +5,8 @@ const apiController = require('./apiUserRoutes');
 
 router.post('/register', apiController.register)
 
+router.post('/login', apiController.login);
+
 // // const router = require("express").Router();
 
 // const apiUserRoutes = require("./apiUserRoutes");
