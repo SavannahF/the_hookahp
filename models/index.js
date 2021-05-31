@@ -4,7 +4,6 @@ const User = require("./User");
 
 
 // Association methods
-
 // Bottle belongsTo User
 Bottle.belongsTo(User, {
   foreignKey: "user_id",
