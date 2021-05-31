@@ -1,7 +1,16 @@
-<h1>Home Page</h1>
-
 {{!-- whatever we want our home page to look like goes outside here, to display ALL THE TIME --}}
+
+{{!-- home img --}}
+<div class="card bg-dark text-white home">
+  <img src="./img/home.jpg" class="card-img" alt="hensey bottle">
+  <div class="card-img-overlay">
+    <h5 class="title text-end fs-1">Wilbo Hookahs</h5>
+    <p class="text-end home-t">Customize hookahs<br>with your choice <br>of liquor bottle</p>
+  </div>
+</div>
+
 {{#if loggedIn}}
-    <h4>You're logged in!!</h4>
     {{!-- whatever we want to display here ONLY WHILE LOGGED IN would go inside the if statement --}}
+
+
 {{/if}}
