@@ -1,6 +1,7 @@
 const mysql = require("mysql2");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const { User, Bottle } = require('../../models');
 
 // need db connection up here
 const db = mysql.createConnection({
