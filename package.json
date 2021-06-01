@@ -8,8 +8,9 @@
   },
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
-    "seed": "node seeds",
-    "start": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "seed": "npm run seeds",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
