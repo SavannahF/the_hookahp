@@ -17,6 +17,9 @@
   },
   "author": "Savannah Fortson, Nadia Dorado, Paulo de Sa, Andrew Patison",
   "license": "ISC",
+  "engines": {
+    "node": "10.15.3"
+  },
   "bugs": {
     "url": "https://github.com/SavannahF/the_hookahp/issues"
   },

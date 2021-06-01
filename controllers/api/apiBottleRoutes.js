@@ -71,7 +71,8 @@ const db = mysql.createConnection({
 //   }
 // });
 
-router.post(`/create_bottle`, async (req, res) => {
+//  /api/bottle
+router.post(`/bottle`, async (req, res) => {
   Bottle.create(
     {
       id: req.body.id,
@@ -82,10 +83,12 @@ router.post(`/create_bottle`, async (req, res) => {
       price: req.body.price,
     }.then((newBottle) => {
       res.json(newBottle);
+      res.status(400).render('create_bottle');
     })
   )
 })
 
+// api/bottle
 // Delete a bottle by its `ID` value
 router.delete("/bottle/:id", async (req, res) => {
   Bottle.findByPk(req.params.id)
