@@ -28,5 +28,12 @@
   top: 300px;
   right: 500px;
   opacity: 0.5;
-  /* padding-top: 200px; */
+  padding-top: 200px;
+}
+
+.login {
+  max-width: 500px;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  left: 200px;
 }

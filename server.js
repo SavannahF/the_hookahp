@@ -5,11 +5,8 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express')
 const app = express()
 const mysql = require("mysql2");
-const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const morgan = require('Morgan');
-
-dotenv.config({ path: `./.env`})
 
 const db = mysql.createConnection({
   // put IP address of server instead of localhost

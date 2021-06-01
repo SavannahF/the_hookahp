@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mysql = require("mysql2");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
@@ -19,7 +20,8 @@ exports.login = async (req, res) => {
             
         if(!email || !password ) {
             return res.status(400).render('login', {
-                message: 'Please provide an email and password'
+                message: 'Please provide an email and password',
+                user: req.user || {}
             })
         }
 
