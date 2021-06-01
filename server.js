@@ -29,7 +29,7 @@ const routes = require("./controllers");
 const sequelize = require("./config/connection");
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
-const PORT = process.env.PORT || 3006;
+const PORT = process.env.PORT || 3001;
 const path = require("path");
 
 const publicDirectory = path.join(__dirname, './public');
