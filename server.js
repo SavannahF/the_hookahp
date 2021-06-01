@@ -6,7 +6,7 @@ const express = require('express')
 const app = express()
 const mysql = require("mysql2");
 const cookieParser = require("cookie-parser");
-const morgan = require('morgan');
+// const morgan = require('morgan');
 
 const db = mysql.createConnection({
   // put IP address of server instead of localhost
@@ -41,7 +41,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // Use Morgan
-app.use(morgan("common"));
+// app.use(morgan("common"));
 
 // Parse URL-enconded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: false }));
