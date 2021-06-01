@@ -9,6 +9,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
 const db = mysql.createConnection({
+  // put IP address of server instead of localhost
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PW,
@@ -70,7 +71,8 @@ const db = mysql.createConnection({
 //   }
 // });
 
-router.post(`/create_bottle`, async (req, res) => {
+//  /api/bottle
+router.post(`/bottle`, async (req, res) => {
   Bottle.create(
     {
       id: req.body.id,
@@ -81,10 +83,12 @@ router.post(`/create_bottle`, async (req, res) => {
       price: req.body.price,
     }.then((newBottle) => {
       res.json(newBottle);
+      res.status(400).render('create_bottle');
     })
   )
 })
 
+// api/bottle
 // Delete a bottle by its `ID` value
 router.delete("/bottle/:id", async (req, res) => {
   Bottle.findByPk(req.params.id)

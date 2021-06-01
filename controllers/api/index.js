@@ -6,7 +6,7 @@ const apiBottleRoutes = require('./apiBottleRoutes');
 
 router.post('/register', apiController.register);
 router.post('/login', apiController.login);
-router.post('/bottle', apiBottleRoutes.bottle);
+// router.post('/bottle', apiBottleRoutes.bottle);
 
 // // const router = require("express").Router();
 
