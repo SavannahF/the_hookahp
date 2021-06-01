@@ -6,12 +6,12 @@ const express = require('express')
 const app = express()
 const mysql = require("mysql2");
 const cookieParser = require("cookie-parser");
-// const morgan = require('morgan');
+const morgan = require('morgan');
 
 const db = mysql.createConnection({
   // put IP address of server instead of localhost
-  host: process.env.JAWSDB_URL,
-  // host: process.env.DB_HOST,
+  // host: process.env.JAWSDB_URL,
+  host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PW,
   database: process.env.DB_NAME
@@ -42,7 +42,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // Use Morgan
-// app.use(morgan("common"));
+app.use(morgan("common"));
 
 // Parse URL-enconded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: false }));
