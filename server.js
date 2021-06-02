@@ -17,13 +17,13 @@ const db = mysql.createConnection({
   database: process.env.DB_NAME
 });
 
-// db.connect( (error) => {
-//   if(error) {
-//     console.log(error)
-//   } else {
-//     console.log("MY SQL Connected....")
-//   }
-// })
+db.connect( (error) => {
+  if(error) {
+    console.log(error)
+  } else {
+    console.log("MY SQL Connected....")
+  }
+})
 
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
