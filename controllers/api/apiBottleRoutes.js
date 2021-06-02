@@ -1,19 +1,22 @@
 const mysql = require("mysql2");
-// const jwt = require('jsonwebtoken');
 const router = require("express").Router();
 const { User, Bottle } = require("../../models");
-const bodyParser = require("body-parser");
-// const express = require("express");
 
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(bodyParser.json());
 
-const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PW,
-  database: process.env.DB_NAME,
+router.get("/", async (req, res) => {
+  try {
+    const bottleData = await Bottle.findAll();
+    const bottles = bottleData.map((bottle) =>
+bottle.get({ plain: true })
+);
+    res.render('create_bottle',{
+      bottles
+    })
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
 
 // Get all Bottles for a given ID:
 // router.get("/bottle/:id", async (req, res) => {

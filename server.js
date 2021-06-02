@@ -11,22 +11,6 @@ const morgan = require('Morgan');
 
 dotenv.config({ path: `./.env`})
 
-const db = mysql.createConnection({
-  // put IP address of server instead of localhost
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PW,
-  database: process.env.DB_NAME
-});
-
-db.connect( (error) => {
-  if(error) {
-    console.log(error)
-  } else {
-    console.log("MY SQL Connected....")
-  }
-})
-
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
 const exphbs = require('express-handlebars');

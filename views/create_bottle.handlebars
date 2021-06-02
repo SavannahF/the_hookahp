@@ -1,12 +1,50 @@
 
-
-<div class="container">
+{{!-- first bottle --}}
+<div class="container" id="createBottle">
 <div class="card bottle" style="width: 18rem;">
-  <img src="/public/img/{{filename}}" alt="{{bottle_type}}" class="card-img-top">
+  {{!-- <img src="/img/{{filename}}" alt="{{bottle_type}}" class="card-img-top"> --}}
+  <img src="/img/01-Hennessy.jpeg" alt="Hennessy VS Cognac 750ml" class="card-img-top">
   
   <div class="card-body" id="bottles-container">
 {{!-- each hbs --}}
-    <h5 class="card-title">{{Bottle.bottle_type}} 
+    {{!-- <h5 class="card-title">{{Bottle.bottle_type}}  --}}
+    <h5 class="card-title"> Hennessy VS Cognac 750ml</h5>
+
+    <h6 id:"questionHose" class="card-text">How many hose(s)/purge valve(s) would you like? </h6>
+    <input type="radio" name="choices1" id="hose1" value="1" class="one">
+    <label id="labelChoice1" for="hose1">1</label>
+    <input type="radio" name="choices2" id="hose2" value="2" class="two">
+    <label id="labelChoice2" for="hose2">2</label>
+    <input type="radio" name="choices3" id="hose3" value="3" class="three">
+    <label id="labelChoice3" for="hose3">3</label>
+    {{!-- lights questions --}}
+    <h6 id:"questionLight" class="card-text">Would you like to add LED lights?</h6>
+    <input type="radio" name="light1" id="yes" value="YES" class="yes1">
+    <label id="labelChoiceYes" for="yes">YES</label>
+    <input type="radio" name="light2" id="no" value="No" class="no1">
+    <label id="labelChoiceNo" for="no">NO</label>
+    {{!-- add name --}}
+    <div class="form">
+                <label for="name_on_bottle">Add a name to the base</label>
+                <input type="name_on_bottle" id="name_on_bottle" name="name_on_bottle">
+            </div>
+    {{!-- <h6 id:"price" class="card-text price">{{Bottle.price}}</h6> --}}
+    <h6 id:"price" class="card-text price">$150</h6>
+    </div>
+    <a href="/card" class="btn btn-primary">Add to Cart</a>
+  </div>
+</div>
+{{!-- second bottle --}}
+<div class="container" id="createBottle">
+<div class="card bottle" style="width: 18rem;">
+  {{!-- <img src="/img/{{filename}}" alt="{{bottle_type}}" class="card-img-top"> --}}
+  <img src="/img/02-jameson.jpeg" alt="Hennessy VS Cognac 750ml" class="card-img-top">
+  
+  <div class="card-body" id="bottles-container">
+{{!-- each hbs --}}
+    {{!-- <h5 class="card-title">{{Bottle.bottle_type}}  --}}
+    <h5 class="card-title"> Jameson Irish Whiskey 1L
+
  </h5>
     
     <h6 id:"questionHose" class="card-text">How many hose(s)/purge valve(s) would you like? </h6>
@@ -18,26 +56,23 @@
     <label id="labelChoice3" for="hose3">3</label>
     {{!-- lights questions --}}
     <h6 id:"questionLight" class="card-text">Would you like to add LED lights?</h6>
-    <input type="radio" name="choices" id="yes" value="YES" class="choices">
+    <input type="radio" name="light" id="yes" value="YES" class="yes1">
     <label id="labelChoiceYes" for="yes">YES</label>
-    <input type="radio" name="choices" id="no" value="No" class="choices">
+    <input type="radio" name="light" id="no" value="No" class="no1">
     <label id="labelChoiceNo" for="no">NO</label>
     {{!-- add name --}}
     <div class="form">
                 <label for="name_on_bottle">Add a name to the base</label>
                 <input type="name_on_bottle" id="name_on_bottle" name="name_on_bottle">
             </div>
-{{!--     
-<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-  <label class="form-check-label" for="flexSwitchCheckChecked">Add a name to the base</label>
-</div> --}}
 
-    <h6 id:"price" class="card-text price">{{Bottle.price}}</h6>
+    {{!-- <h6 id:"price" class="card-text price">{{Bottle.price}}</h6> --}}
+    <h6 id:"price" class="card-text price">$150</h6>
+
 
     </div>
 
-    <a href="#" class="btn btn-primary">Add to Cart</a>
+    <a href="/card" class="btn btn-primary">Add to Cart</a>
   </div>
 
 </div>
