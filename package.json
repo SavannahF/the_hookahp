@@ -7,12 +7,10 @@
     "test": "test"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "dev": "nodemon server.js",
+    "seed": "npm run seeds",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -38,7 +36,6 @@
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.7",
-    "sequelize": "^6.6.2",
-    "serve": "^11.3.2"
+    "sequelize": "^6.6.2"
   }
 }
