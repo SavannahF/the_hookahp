@@ -8,14 +8,14 @@ const mysql = require("mysql2");
 const cookieParser = require("cookie-parser");
 const morgan = require('morgan');
 
-// const db = mysql.createConnection({
-//   // put IP address of server instead of localhost
-//   // host: process.env.JAWSDB_URL,
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PW,
-//   database: process.env.DB_NAME
-// });
+const db = mysql.createConnection({
+  // put IP address of server instead of localhost
+  // host: process.env.JAWSDB_URL,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PW,
+  database: process.env.DB_NAME
+});
 
 // db.connect( (error) => {
 //   if(error) {
