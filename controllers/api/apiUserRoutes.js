@@ -6,14 +6,14 @@ const { User, Bottle } = require('../../models');
 
 
 // need db connection up here
-const db = mysql.createConnection({
-    // put IP address of server instead of localhost
-    host: process.env.DB_HOST,
-    // host: process.env.JAWSDB_URL,
-    user: process.env.DB_USER,
-    password: process.env.DB_PW,
-    database: process.env.DB_NAME
-  });
+// const db = mysql.createConnection({
+//     // put IP address of server instead of localhost
+//     host: process.env.DB_HOST,
+//     // host: process.env.JAWSDB_URL,
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PW,
+//     database: process.env.DB_NAME
+//   });
 
 exports.login = async (req, res) => {
     try {
