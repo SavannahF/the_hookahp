@@ -1,21 +1,18 @@
-// if (process.env.NODE_ENV !== 'production') {
-//   require('dotenv').config()
-// }
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 const express = require('express')
 const app = express()
 const mysql = require("mysql2");
-const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
-const morgan = require('Morgan');
-
-dotenv.config({ path: `./.env`})
+const morgan = require('morgan');
 
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
-const PORT = process.env.PORT || 3006;
+const PORT = process.env.PORT || 3001;
 const path = require("path");
 
 const publicDirectory = path.join(__dirname, './public');

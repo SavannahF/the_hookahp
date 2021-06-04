@@ -3,19 +3,14 @@ const router = require("express").Router();
 const { User, Bottle } = require("../../models");
 
 
-router.get("/", async (req, res) => {
-  try {
-    const bottleData = await Bottle.findAll();
-    const bottles = bottleData.map((bottle) =>
-bottle.get({ plain: true })
-);
-    res.render('create_bottle',{
-      bottles
-    })
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// const db = mysql.createConnection({
+//   // put IP address of server instead of localhost
+//   host: process.env.DB_HOST,
+//   // host: process.env.JAWSDB_URL,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PW,
+//   database: process.env.DB_NAME,
+// });
 
 
 // Get all Bottles for a given ID:
@@ -73,7 +68,8 @@ bottle.get({ plain: true })
 //   }
 // });
 
-router.post(`/create_bottle`, async (req, res) => {
+//  /api/bottle
+router.post(`/bottle`, async (req, res) => {
   Bottle.create(
     {
       id: req.body.id,
@@ -84,10 +80,12 @@ router.post(`/create_bottle`, async (req, res) => {
       price: req.body.price,
     }.then((newBottle) => {
       res.json(newBottle);
+      res.status(400).render('create_bottle');
     })
   )
 })
 
+// api/bottle
 // Delete a bottle by its `ID` value
 router.delete("/bottle/:id", async (req, res) => {
   Bottle.findByPk(req.params.id)
