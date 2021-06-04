@@ -11,12 +11,20 @@ const bottlesData = [
     filename: "01-Hennessy.jpg",
   },
   {
-    bottle_type: `Hennessy VS Cognac`,
+    bottle_type: `Jameson Irish Whiskey 1L`,
     hose_qty: 2,
     lt_flag: false,
-    name_on_bottle: `Flaca`,
+    name_on_bottle: `Paulo`,
     price: 100.0,
-    filename: "02-Hennessy.jpg",
+    filename: "jameson.jpg",
+  },
+  {
+    bottle_type: `Don Julio 1942 750ml`,
+    hose_qty: 2,
+    lt_flag: false,
+    name_on_bottle: `Savannah`,
+    price: 250.0,
+    filename: "donjulio.jpg",
   },
   //   Add Additional bottles seeds Below:
 ];

@@ -1,21 +1,17 @@
 const mysql = require("mysql2");
-// const jwt = require('jsonwebtoken');
 const router = require("express").Router();
 const { User, Bottle } = require("../../models");
-const bodyParser = require("body-parser");
-// const express = require("express");
 
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(bodyParser.json());
 
-const db = mysql.createConnection({
-  // put IP address of server instead of localhost
-  host: process.env.DB_HOST,
-  // host: process.env.JAWSDB_URL,
-  user: process.env.DB_USER,
-  password: process.env.DB_PW,
-  database: process.env.DB_NAME,
-});
+// const db = mysql.createConnection({
+//   // put IP address of server instead of localhost
+//   host: process.env.DB_HOST,
+//   // host: process.env.JAWSDB_URL,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PW,
+//   database: process.env.DB_NAME,
+// });
+
 
 // Get all Bottles for a given ID:
 // router.get("/bottle/:id", async (req, res) => {
